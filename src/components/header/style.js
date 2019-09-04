@@ -121,13 +121,16 @@ export const Button = styled.div`
     margin-right: 20px;
     padding: 0 20px;
     border-radius: 19px;
-    border: 1px solid #ec6149;
+    border: 1px solid #ea6f5a;
     &.reg {
-        color: #ec6149;
+        color: #ea6f5a;
     }
     &.writing {
         color: #fff;
-        background: #ec6149;
+        background: #ea6f5a;
+    }
+    i {
+        margin-right: 6px;
     }
 
 `
