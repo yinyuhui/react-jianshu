@@ -1,21 +1,19 @@
-const defaultState = {
+import actionTypes from '../actionTypes/headerActionTypes'
+import { fromJS } from 'immutable'
+
+const defaultState = fromJS({
     focused: false
-}
+})
 
 export default (state = defaultState, action) => {
-    let newState = JSON.parse(JSON.stringify(state))
     const { type } = action
 
     switch(type) {
-        case 'search_input_focus': 
-            newState.focused = true
-            break
-        case 'search_input_blur': 
-            newState.focused = false
-            break
+        case actionTypes.SEARCH_INPUT_FOCUS: 
+            return state.set('focused', true)
+        case actionTypes.SEARCH_INPUT_BLUR: 
+            return state.set('focused', false)
         default: 
+            return state
     }
-
-    
-    return newState
 }

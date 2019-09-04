@@ -12,6 +12,7 @@ import {
 } from './style'
 
 import { connect } from 'react-redux'
+import actionCreators from '../../store/actionCreators'
 
 const Header = (props) =>  {
     const { focused, handleInputFocus, handleInputBlur } = props
@@ -51,24 +52,22 @@ const Header = (props) =>  {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.headerReducer.focused
+        focused: state.headerReducer.get('focused')
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         handleInputFocus() {
-            const action = {
-                type: 'search_input_focus',
-            }
-            dispatch(action)
+            dispatch(actionCreators.headerActionCreators.getSearchFocus())
         },
 
         handleInputBlur() {
-            const action = {
-                type: 'search_input_blur',
-            }
-            dispatch(action)
+            dispatch(actionCreators.headerActionCreators.getSearchBlur())
+            // const action = {
+            //     type: 'search_input_blur',
+            // }
+            // dispatch(action)
         }
     }
 }
