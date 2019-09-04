@@ -41,6 +41,48 @@ export const NavItem = styled.div`
     &.active {
         color: #ea6f5a
     }
+    &.home {
+        margin-right: 10px;
+    }
+`
+
+export const SearchWrapper = styled.div`
+    float: left;
+    position: relative;
+    .icon {
+        position: absolute;
+        right: 5px;
+        bottom: 4px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        color: #969696;
+    }
+
+    .icon.focused {
+        background-color: #969696;
+        color: #fff;
+    }
+
+    .slide-enter {
+        transition: all .2s ease-out;
+        width: 160px
+    }
+
+    .slide-enter-active {
+        width: 240px;
+    }
+
+    .slide-exit {
+        transition: all .2s ease-out;
+    }
+
+    .slide-exit-active {
+        width: 160px;
+    }
 `
 
 export const NavSearch = styled.input.attrs({
@@ -48,15 +90,19 @@ export const NavSearch = styled.input.attrs({
 })`
     width: 160px;
     height: 38px;
-    padding: 0 20px;
-    margin: 9px 0 0 20px;
+    padding: 0 30px 0 20px;
+    margin: 9px 0 0 25px;
     border: none;
     outline: none;
     border-radius:19px;
     background: #eee;
     font-size: 14px;
+    color: #666;
     &::placeholder {
         color: #999;
+    }
+    &.focused {
+        width: 240px;
     }
 `
 
