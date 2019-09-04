@@ -44,6 +44,10 @@ export const NavItem = styled.div`
     &.home {
         margin-right: 10px;
     }
+
+    i {
+        margin-right: 6px;
+    }
 `
 
 export const SearchWrapper = styled.div`
@@ -69,11 +73,11 @@ export const SearchWrapper = styled.div`
 
     .slide-enter {
         transition: all .2s ease-out;
-        width: 160px
+        width: 240px
     }
 
     .slide-enter-active {
-        width: 240px;
+        width: 320px;
     }
 
     .slide-exit {
@@ -81,14 +85,14 @@ export const SearchWrapper = styled.div`
     }
 
     .slide-exit-active {
-        width: 160px;
+        width: 240px;
     }
 `
 
 export const NavSearch = styled.input.attrs({
     placeholder: '搜索',
 })`
-    width: 160px;
+    width: 240px;
     height: 38px;
     padding: 0 30px 0 20px;
     margin: 9px 0 0 25px;
@@ -102,7 +106,7 @@ export const NavSearch = styled.input.attrs({
         color: #999;
     }
     &.focused {
-        width: 240px;
+        width: 320px;
     }
 `
 
@@ -133,4 +137,45 @@ export const Button = styled.div`
         margin-right: 6px;
     }
 
+`
+
+export const SearchInfo = styled.div`
+    position: absolute;
+    left: 24px;
+    top: 56px;
+    width: 250px;
+    padding: 0 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2)
+`
+
+export const SearchInfoTitle = styled.div`
+    margin-top: 20px;
+    margin-bottom: 15px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #969696
+`
+
+export const SearchInfoSwitch = styled.div`
+    float: right;
+    font-size: 13px;
+    i {
+        margin-right: 6px;
+    }
+`
+export const SearchInfoList = styled.div`
+    float: right;
+    font-size: 13px;
+`
+export const SearchInfoItem = styled.a`
+    padding: 0 5px;
+    display: inline-block;
+    line-height: 20px;
+    font-size: 12px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    color: #969696;
+    border-radius: 3px;
+    cursor: pointer;
 `
