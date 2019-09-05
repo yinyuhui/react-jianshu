@@ -1,5 +1,7 @@
 import headerActionCreators from './headerActionCreators'
+import homeActionCreators from './homeActionCreators'
 
 export default {
-    headerActionCreators
+    headerActionCreators,
+    homeActionCreators,
 }
