@@ -31,6 +31,7 @@ export const NavItem = styled.div`
     padding: 0 15px;
     font-size: 17px;
     color: #333;
+    cursor: pointer;
     &.left {
         float: left;
     }
@@ -126,6 +127,7 @@ export const Button = styled.div`
     padding: 0 20px;
     border-radius: 19px;
     border: 1px solid #ea6f5a;
+    cursor: pointer;
     &.reg {
         color: #ea6f5a;
     }
@@ -153,18 +155,23 @@ export const SearchInfoTitle = styled.div`
     margin-bottom: 15px;
     line-height: 20px;
     font-size: 14px;
-    color: #969696
+    color: #969696;
 `
 
 export const SearchInfoSwitch = styled.div`
     float: right;
     font-size: 13px;
+    cursor: pointer;
     i {
+        display: inline-block;
         margin-right: 6px;
+        font-size: 12px;
+        transition: all .2s ease-in;
+        transform-origin: center center;
     }
 `
 export const SearchInfoList = styled.div`
-    float: right;
+    float: left;
     font-size: 13px;
 `
 export const SearchInfoItem = styled.a`

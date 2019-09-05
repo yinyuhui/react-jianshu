@@ -18,36 +18,10 @@ import {
 
 import { connect } from 'react-redux'
 import actionCreators from '../../store/actionCreators'
-import axios from 'axios'
-import '../../mock/searchInfo'
 
-const getListArea = (show, list) => {
-    if(show) {
-        return (
-            <SearchInfo>
-                <SearchInfoTitle>
-                    热门搜索
-                    <SearchInfoSwitch>
-                        <i className="iconfont iconshuaxin"></i>
-                        换一批
-                    </SearchInfoSwitch>
-                </SearchInfoTitle>
-                
-                <SearchInfoList>
-                    {list.map(item => <SearchInfoItem key={item.id}>{item.label}</SearchInfoItem>)}
-                </SearchInfoList>
-            </SearchInfo>
-        )
-    }
-}
+
 
 class Header extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            searchInfoList: []
-        }
-    }
 
     render() {
         const { focused, handleInputFocus, handleInputBlur } = this.props
@@ -78,7 +52,7 @@ class Header extends Component {
                             ></NavSearch>
                         </CSSTransition>
                         <div className={focused ? 'focused icon' : 'icon'}><i className="iconfont iconfangdajing"></i></div>
-                        {getListArea(focused, this.state.searchInfoList)}
+                        { this.getListArea() }
                     </SearchWrapper>
                 </Nav>
                 <Addition>
@@ -90,19 +64,47 @@ class Header extends Component {
         )
     }
 
-    componentDidMount() {
-        axios.get('/searchInfo').then(res => {
-            console.log(res.data.list)
-            this.setState(() => ({
-                searchInfoList: res.data.list 
-            }))
-        })
+    getListArea = () => {
+        const { focused, mouseIn, searchInfoList, onMouseEnter, onMouseLeave, changeSearchInfoList } = this.props
+        if(searchInfoList && (focused || mouseIn)) {
+            return (
+                <SearchInfo 
+                    onMouseEnter={ () => onMouseEnter() }
+                    onMouseLeave={ () => onMouseLeave() }
+                >
+                    <SearchInfoTitle>
+                        热门搜索
+                        <SearchInfoSwitch onClick={ () => changeSearchInfoList(this.spinIcon) }>
+                            <i 
+                                className="iconfont iconshuaxin spin"
+                                ref={ (icon) => this.spinIcon = icon }
+                            ></i>
+                            换一批
+                        </SearchInfoSwitch>
+                    </SearchInfoTitle>
+                    
+                    <SearchInfoList>
+                        { searchInfoList.map(item => {
+                            return  <SearchInfoItem key={item.get('id')}>
+                                        {item.get('label')}
+                                    </SearchInfoItem>
+                        })}
+                    </SearchInfoList>
+                </SearchInfo>
+            )
+        }
+        else {
+            return null
+        }
     }
+
 }
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.get('headerReducer').get('focused')
+        focused: state.get('headerReducer').get('focused'),
+        searchInfoList: state.get('headerReducer').get('searchInfoList'),
+        mouseIn: state.get('headerReducer').get('mouseIn'),
     }
 }
 
@@ -110,14 +112,25 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleInputFocus() {
             dispatch(actionCreators.headerActionCreators.getSearchFocus())
+            dispatch(actionCreators.headerActionCreators.getSearchInfoList())
         },
 
         handleInputBlur() {
             dispatch(actionCreators.headerActionCreators.getSearchBlur())
-            // const action = {
-            //     type: 'search_input_blur',
-            // }
-            // dispatch(action)
+        },
+
+        onMouseEnter() {
+            dispatch(actionCreators.headerActionCreators.getMouseEnter())
+        },
+
+        onMouseLeave() {
+            dispatch(actionCreators.headerActionCreators.getMouseLeave())
+        },
+
+        changeSearchInfoList(spinIcon) {
+            const originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '') || 0
+            spinIcon.style.transform = `rotate(${360 + Number(originAngle)}deg)`
+            dispatch(actionCreators.headerActionCreators.getSearchInfoList())
         }
     }
 }
