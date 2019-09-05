@@ -22,9 +22,10 @@ export const TopicItem = styled.div`
     img {
         display: block;
         float: left;
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
         margin-right: 10px;
+        border-radius: 4px 0 0 4px;
     }
 `
 
