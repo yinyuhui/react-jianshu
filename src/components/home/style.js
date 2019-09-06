@@ -9,6 +9,20 @@ export const HomeWrapper = styled.div`
         width: 625px;
         height: 240px;
     }
+    .go-top {
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+        border: 1px solid #dcdcdc;
+        cursor: pointer;
+        text-align: center;
+        line-height: 60px;
+    }
+    .go-top i {
+        font-size: 20px;
+    }
 `
 export const HomeLeft = styled.div`
     margin-left: 15px;
@@ -17,6 +31,6 @@ export const HomeLeft = styled.div`
     float: left;
 `
 export const HomeRight = styled.div`
-    width: 240px;
+    width: 280px;
     float: right;
 `

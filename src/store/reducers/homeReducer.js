@@ -13,7 +13,21 @@ const defaultState = fromJS({
         image: '',
         title: '',
         desc: ''
-    }]
+    }],
+    
+    recommendList: [{
+        id: '',
+        image: '',
+        title: '',
+    }],
+
+    writerList: [{
+        id: '',
+        image: '',
+        name: '',
+        desc: '',
+    }],
+
 })
 
 export default (state = defaultState, action) => {
@@ -25,7 +39,10 @@ export default (state = defaultState, action) => {
             return state.set('topicList', value)
         case actionTypes.ARTICLE_LIST: 
             return state.set('articleList', value)
-            
+        case actionTypes.RECOMMEND_LIST: 
+            return state.set('recommendList', value)    
+        case actionTypes.WRITER_LIST: 
+            return state.set('writerList', value)    
         default: 
             return state
     }

@@ -2,6 +2,8 @@ import actionTypes from '../actionTypes/homeActionTypes'
 import axios from 'axios'
 import '../../mock/topicList'
 import '../../mock/articleList'
+import '../../mock/recommendList'
+import '../../mock/writerList'
 
 const getTopicListAction = (value) => ({
     type: actionTypes.TOPIC_LIST,
@@ -10,6 +12,16 @@ const getTopicListAction = (value) => ({
 
 const getArticleListAction = (value) => ({
     type: actionTypes.ARTICLE_LIST,
+    value
+})
+
+const getRecommendListAction = (value) => ({
+    type: actionTypes.RECOMMEND_LIST,
+    value
+})
+
+const getWriterListAction = (value) => ({
+    type: actionTypes.WRITER_LIST,
     value
 })
 
@@ -34,7 +46,29 @@ const getArticleList = () => {
     }
 }
 
+const getRecommendList = () => {
+    return (dispatch) => {
+        axios.get('/recommendList').then(res => {
+            dispatch(getRecommendListAction(res.data.list))
+        }).catch(e => {
+            console.error(e)
+        })
+    }
+}
+
+const getWriterList = () => {
+    return (dispatch) => {
+        axios.get('/writerList').then(res => {
+            dispatch(getWriterListAction(res.data.list))
+        }).catch(e => {
+            console.error(e)
+        })
+    }
+}
+
 export default {
     getTopicList,
     getArticleList,
+    getRecommendList,
+    getWriterList,
 }

@@ -7,6 +7,6 @@ export default Mock.mock('/topicList', 'get', {
     'list|7': [{
         'id|+1': 1,
         'title|+1': list,
-        'image': "//upload-images.jianshu.io/upload_images/1464364-6de002ec989a92e4.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+        'image': "//upload-images.jianshu.io/upload_images/3459828-fdf30bf7e301a6e9.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
     }]
 })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ListItem, ListInfo } from './style'
+import { ListWrapper, ListItem, ListInfo } from './style'
 import actionCreators from '../../store/actionCreators'
 import { connect } from 'react-redux';
 
@@ -7,7 +7,7 @@ export class List extends Component {
     render() {
         const { articleList } = this.props
         return (
-            <div>
+            <ListWrapper>
                 {articleList.map(item => {
                     return (
                         <ListItem key={item.get('id')}>
@@ -19,7 +19,8 @@ export class List extends Component {
                         </ListItem>
                     )
                 })}
-            </div>
+                <div className="load-more">阅读更多</div>
+            </ListWrapper>
             
         )
     }
