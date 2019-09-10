@@ -38,7 +38,8 @@ export default (state = defaultState, action) => {
         case actionTypes.TOPIC_LIST: 
             return state.set('topicList', value)
         case actionTypes.ARTICLE_LIST: 
-            return state.set('articleList', value)
+            let list = action.joint ? fromJS([...state.get('articleList'),...value]) : value
+            return state.set('articleList', list)
         case actionTypes.RECOMMEND_LIST: 
             return state.set('recommendList', value)    
         case actionTypes.WRITER_LIST: 

@@ -15,6 +15,7 @@ import {
     SearchInfoItem,
     SearchInfoSwitch,
 } from './style'
+import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import actionCreators from '../../store/actionCreators'
@@ -27,7 +28,9 @@ class Header extends Component {
         const { focused, handleInputFocus, handleInputBlur } = this.props
         return (
             <HeaderWrapper>
-                <Logo href="/" />
+                <Link to="/" >
+                    <Logo />
+                </Link>
                 <Nav>
                     <NavItem className="left active home">
                         <i className="iconfont iconzhinanzhenfaxiandaohangdizhiweizhi"></i>

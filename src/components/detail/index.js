@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { DetailWrapper } from './style'
 
-const Detail = () => {
-    return <div>Detail</div>
+class Detail extends Component {
+    render() {
+
+        return <DetailWrapper>Detail</DetailWrapper>
+    }
 }
 
 export default Detail

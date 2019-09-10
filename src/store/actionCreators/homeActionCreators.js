@@ -10,9 +10,10 @@ const getTopicListAction = (value) => ({
     value
 })
 
-const getArticleListAction = (value) => ({
+const getArticleListAction = (value, joint) => ({
     type: actionTypes.ARTICLE_LIST,
-    value
+    value,
+    joint,
 })
 
 const getRecommendListAction = (value) => ({
@@ -36,10 +37,10 @@ const getTopicList = () => {
     }
 }
 
-const getArticleList = () => {
+const getArticleList = (joint = false) => {
     return (dispatch) => {
         axios.get('/articleList').then(res => {
-            dispatch(getArticleListAction(res.data.list))
+            dispatch(getArticleListAction(res.data.list, joint))
         }).catch(e => {
             console.error(e)
         })
