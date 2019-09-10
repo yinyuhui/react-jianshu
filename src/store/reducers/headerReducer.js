@@ -6,6 +6,8 @@ const defaultState = fromJS({
     mouseIn: false,
     searchInfoList: [],
     recommendList: [],
+    loginStatus: false,
+    showLogin: false,
 })
 
 export default (state = defaultState, action) => {
