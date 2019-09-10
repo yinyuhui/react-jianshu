@@ -11,7 +11,7 @@ export class List extends Component {
             <ListWrapper>
                 {articleList.map(item => {
                     return (
-                        <Link to='/detail' key={item.get('id')}>
+                        <Link to={`/detail/${item.get('id')}`}key={item.get('id')}>
                             <ListItem >
                                 <img alt="list-item" src={item.get('image')}></img>
                                 <ListInfo>

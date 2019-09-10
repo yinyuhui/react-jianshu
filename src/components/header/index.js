@@ -32,10 +32,12 @@ class Header extends Component {
                     <Logo />
                 </Link>
                 <Nav>
-                    <NavItem className="left active home">
-                        <i className="iconfont iconzhinanzhenfaxiandaohangdizhiweizhi"></i>
-                        首页
-                    </NavItem>
+                    <Link to='/'>
+                        <NavItem className="left active home">
+                            <i className="iconfont iconzhinanzhenfaxiandaohangdizhiweizhi"></i>
+                            首页
+                        </NavItem>
+                    </Link>
                     <NavItem className="left">
                         <i className="iconfont iconshouji"></i>
                         下载App
