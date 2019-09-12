@@ -42,9 +42,10 @@ class Header extends Component {
                         <i className="iconfont iconshouji"></i>
                         下载App
                     </NavItem>
-                    <Link to="/login">
+                    {/* <Link to="/login">
                         <NavItem className="right">登录</NavItem>
-                    </Link>
+                    </Link> */}
+                    <NavItem className="right">登录</NavItem>
                     <NavItem className="right"><i className="iconfont iconAa"></i></NavItem>
                     <SearchWrapper>
                         <CSSTransition

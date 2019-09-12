@@ -7,6 +7,8 @@ import {
     DetailContentSlide,
 } from './style'
 
+import { withRouter } from 'react-router-dom'
+
 class Detail extends Component {
     render() {
         // 从路由取参 用于获取对应 ID 的文章详情
@@ -52,4 +54,4 @@ class Detail extends Component {
     }
 }
 
-export default Detail
+export default withRouter(Detail)

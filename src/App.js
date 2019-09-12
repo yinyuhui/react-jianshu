@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header'
 import Home from './components/home'
-import Detail from './components/detail'
+import Detail from './components/detail/loadable'
 import Login from './components/login'
 
 import { Provider } from 'react-redux'

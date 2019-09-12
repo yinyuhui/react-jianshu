@@ -99,7 +99,6 @@ export const DetailContent = styled.div`
 export const DetailContentSlide = styled.div`
     width: 180px;
     height: 260px;
-    background: #000;
     position: fixed;
     top: 112px;
     right: 50%;
